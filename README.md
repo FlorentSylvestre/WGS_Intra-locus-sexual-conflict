@@ -26,3 +26,21 @@ bcftools view -t ^9:3850000-8600000,16:17100000-18050000,21:1800000-2700000 -Oz 
 and use that new VCF for the rest of the pipeline
 
 # Population structure:
+for these analysis we:
+1) use impute_vcf.py to replace NA by the most frequent genotype
+2) Use PCA.R to permformed a PCa analysis on imputed dataset
+3) Use 04 and 05 scripts to estimates and plot relatedness among all samples (king inference)
+
+# Duplications on sex chromosome:
+To filter potential duplicates on sex chromsomes, we need severale metrics:
+1) Wilcoxon wank sum test of coverage comparing males and females
+Using the 06_Wilcox_rank_cov.py script
+
+2) SNP density in sliddings windows between males and females
+Using the 07_Gather_SNPs_counts
+
+3)Sex-specific median coverage and Heterozygosity
+Using the 08_extract_covbiais_Hetbiais.py script
+
+Final plot is generated with the
+plot_diff_sex.R script
