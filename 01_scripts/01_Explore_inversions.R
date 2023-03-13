@@ -216,6 +216,7 @@ N_s <- table(cluster_9$Group, cluster_9$V2)
 Chisqtest_9_sex <- chisq.test(N_s)
 
 ##Use vcftools to estimate per group and intersex metric for that inversion
+#mkdir 98_metrics/inversion/chr9
 #vcftools --bcf 04_datasets/inversions/INV_chr9.bcf --out 98_metrics/inversion/chr9/INV_chr9 --keep 02_maps/maps_inversion/INV_9_grp1 --hardy
 #vcftools --bcf 04_datasets/inversions/INV_chr9.bcf --out 98_metrics/inversion/chr9/INV_chr9 --keep 02_maps/maps_inversion/INV_9_grp2 --hardy
 #vcftools --bcf 04_datasets/inversions/INV_chr9.bcf --out 98_metrics/inversion/chr9/INV_chr9 --keep 02_maps/maps_inversion/INV_9_grp3 --hardy
@@ -339,7 +340,6 @@ p_chr_9 <- (md1_chr9 + PCA_chr9)/(het_plot_9 | cov_plot_9| Fst_plot_9)+ plot_ann
 
 
 ####Zoom on potential peak in third group, between 6.5 and 7.5
-
 #vcftools --bcf 04_datasets/inversions/INV_chr9.bcf --out 98_metrics/inversion/chr9/INV_chr9_M --keep 02_maps/maps_inversion/INV_9_grp3_M --site-mean-depth
 #vcftools --bcf 04_datasets/inversions/INV_chr9.bcf --out 98_metrics/inversion/chr9/INV_chr9_F --keep 02_maps/maps_inversion/INV_9_grp3_F --site-mean-depth
 #vcftools --bcf 04_datasets/inversions/INV_chr9.bcf --out 98_metrics/inversion/chr9/INV_chr9_M --keep 02_maps/maps_inversion/INV_9_grp3_M --hardy
@@ -510,6 +510,7 @@ Chisqtest_16 <- chisq.test(N, p = p_exp)
 N_s <- table(cluster_16$Group,cluster_16$V2)
 Chisqtest_16_Sex <- chisq.test(N_s)
 
+#mkdir 98_metrics/inversion/chr16
 #vcftools --bcf 04_datasets/inversions/INV_chr16.bcf --out 98_metrics/inversion/chr16/INV_chr16 --keep 02_maps/maps_inversion/INV_16_grp1 --hardy
 #vcftools --bcf 04_datasets/inversions/INV_chr16.bcf --out 98_metrics/inversion/chr16/INV_chr16 --keep 02_maps/maps_inversion/INV_16_grp2 --hardy
 #vcftools --bcf 04_datasets/inversions/INV_chr16.bcf --out 98_metrics/inversion/chr16/INV_chr16 --keep 02_maps/maps_inversion/INV_16_grp3 --hardy
@@ -711,6 +712,7 @@ write.table(cluster_21, "02_maps/maps_inversion/INV_21_cluster",
 N_s <- table(cluster_21$Group,cluster_21$V2)
 Chisqtest_21_Sex <- chisq.test(N_s)
 
+#mkdir 98_metrics/inversion/chr16
 #vcftools --bcf 04_datasets/inversions/INV_chr21.bcf --out 98_metrics/inversion/chr21/INV_chr21 --keep 02_maps/maps_inversion/INV_21_grp1 --hardy
 #vcftools --bcf 04_datasets/inversions/INV_chr21.bcf --out 98_metrics/inversion/chr21/INV_chr21 --keep 02_maps/maps_inversion/INV_21_grp2 --hardy
 #vcftools --bcf 04_datasets/inversions/INV_chr21.bcf --out 98_metrics/inversion/chr21/INV_chr21 --keep 02_maps/maps_inversion/INV_21_grp1 --site-mean-depth
