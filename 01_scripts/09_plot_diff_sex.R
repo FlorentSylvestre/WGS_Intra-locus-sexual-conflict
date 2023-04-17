@@ -1,13 +1,20 @@
+#Rscript generate the figure 1C plot
+
+
+#library 
 library(tidyverse)
 library(data.table)
 library(gridExtra)
 library(patchwork)
 library(ggrastr)
-dat_covhet <- fread("06_filtering_duplicates/NO_INV_COV_MISS_QUAL_MAF010_filtered_99_autosomes_biallelic_SOR_sorted_renamed_NoUn.covhet")
-dat_countsnp <- fread(06_filtering_duplicates/NO_INV_COV_MISS_QUAL_MAF010_filtered_99_autosomes_biallelic_SOR_sorted_renamed_NoUn.snpscount")
-dat_countsnp <- dat_countsnp[order(dat_countsnp$CHROM,dat_countsnp$POS),]
-dat_wilcox<- fread("/media/florent/Florent_data/Doctorat/EPINOCHES/Analysis_chapitre1_V2/06_filtering_duplicates/NO_INV_COV_MISS_QUAL_MAF010_filtered_99_autosomes_biallelic_SOR_sorted_renamed_NoUn.wilcox")
 
+#Input files
+dat_covhet <- fread("98_metrics/Intersex_covhet")
+dat_countsnp <-  "98_metrics/intersex_snp_count_differences.txt")
+dat_wilcox<- fread("98_metrics/wilcoxonRankSum_intersex_coverage")
+
+#ordering countsnp:
+dat_countsnp <- dat_countsnp[order(dat_countsnp$CHROM,dat_countsnp$POS),]
 
 
 ##graphic parameters
@@ -63,13 +70,13 @@ ggsave(filename = "99_plots/plot_potential_duplication.pdf",
 
 
 fwrite(cbind(dat_covhet[group != "PASS", c("CHROM", "POS")],group[group != "PASS" ]),
-       "97_SNPs_list/Sex_suplications/BAD_Snps",
+       "97_SNPs_lists/Sex_suplications/BAD_Snps",
              row.names = FALSE,
              col.names = FALSE,
              sep = "\t")
 fwrite(cbind(dat_covhet[group == "PASS", c("CHROM", "POS")],
              group[group == "PASS" ]),
-       "97_SNPs_list/Sex_suplications/GOOD_Snps",
+       "97_SNPs_lists/Sex_suplications/GOOD_Snps",
        row.names = FALSE,
        col.names = FALSE,
        sep = "\t")
@@ -90,6 +97,6 @@ sumtable <- data.frame("Females" = c(count_cov[1],count_NSP[1]),
                                "Males" = c(count_cov[2],0), "Total" = c(sum(count_cov),sum(count_NSP)))
 row.names(sumtable) <- c("Coverage biais", "SNP count biais")
 write.csv(sumtable,
-          "99_plots/Duplicated_summary_table.csv",
+          "97_SNPs_lists/Duplicated_summary_table.csv",
           quote = FALSE,
           row.names = TRUE)
