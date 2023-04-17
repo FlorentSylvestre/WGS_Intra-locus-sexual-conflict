@@ -2,6 +2,8 @@
 """For each SNPs, report wilcoxon rank sum test p-value comparing male and female coverage
 Usage:
         <program> input_vcf popmap output
+with input : path to a vcf file
+popmap: tab-separated file indicating individuals sex
 
 """
 
@@ -16,7 +18,7 @@ from scipy.stats import mannwhitneyu  as wilkox
 try:
         input_vcf = sys.argv[1]
         input_map = sys.argv[2]
-        output = sys.argv[3]
+        output = "06_Wilcoxon/wilcoxon"
 except:
         print(__doc__)
         sys.exit(1)
