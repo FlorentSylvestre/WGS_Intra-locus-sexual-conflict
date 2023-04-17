@@ -1,13 +1,13 @@
 library(data.table)
 ###Usage:
-#Rscript script infile.012 popmap target size output
+#Rscript script infile.012 popmap target size
 
 args = commandArgs(trailingOnly = T)
 infile = args[1]
 popmap = args[2]
 target = args[3]
 size = as.numeric(args[4])
-output = args[5]
+output = "98_metrics/intersex_snp_count_differences.txt"
 
 
 dat <- data.frame(fread(infile, h = F)[,-1])
@@ -40,7 +40,7 @@ pos <- paste(pos$V1,pos$V2,sep="_")
 targ <- paste(list_target$V1,list_target$V2,sep ="_")
 
 win= list()
-  for(i in 1:nrow(list_target)){
+for(i in 1:nrow(list_target)){
   target <- which(pos == targ[i])
 
   inf <- max(min_chr[names(min_chr) == list_target$V1[i]], target - size)
