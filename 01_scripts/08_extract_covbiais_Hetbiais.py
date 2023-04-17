@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Calculates per snps intersex cov and heterozogoty biais and repport alt hommozygotie
 Usage:
-        <program> input_vcf popmap output
+        <program> input_vcf popmap
 
 """
 
@@ -16,11 +16,12 @@ from statistics import median
 try:
         input_vcf = sys.argv[1]
         input_map = sys.argv[2]
-        output = sys.argv[3]
 except:
         print(__doc__)
         sys.exit(1)
-
+        
+#Fixed Path:
+output = "98_metrics/Intersex_covhet"
 
 #Functions
 def myopen(_file, mode = "rt"):
