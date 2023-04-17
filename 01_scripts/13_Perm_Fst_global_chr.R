@@ -47,9 +47,12 @@ options(scipen=999)
 args = commandArgs(trailingOnly = T)
 print(args)
 file_observed_data <-  args[1]
-suffix = args[2]
+
 N <- as.numeric(args[3])
 size = as.numeric(args[4])
+
+#Fixed variables
+suffix = "96_permutations/R_"
 output = "08_Fst_perm/"
 
 
@@ -73,7 +76,7 @@ res_matrix_per_chr <- list()
 
 for(j in 1:N){
   print(paste("Perm",j,sep =" "))
-  name = paste(suffix,j,sep = "_")
+  name = paste(suffix,j,sep = "")
   print(name)
   tmp_file = fread(name, h = T)
   tmp_file$scaf <- file$scaf
