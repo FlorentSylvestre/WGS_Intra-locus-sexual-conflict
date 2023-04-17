@@ -18,7 +18,7 @@ from scipy.stats import mannwhitneyu  as wilkox
 try:
         input_vcf = sys.argv[1]
         input_map = sys.argv[2]
-        output = "06_Wilcoxon/wilcoxon"
+        output = "98_metrics/wilcoxonRankSum_intersex_coverage"
 except:
         print(__doc__)
         sys.exit(1)
