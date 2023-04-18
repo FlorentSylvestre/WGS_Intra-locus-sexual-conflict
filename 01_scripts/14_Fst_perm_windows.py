@@ -34,7 +34,7 @@ if Size/Overlap != Size // Overlap:
     exit(0)
 
 ##Fixed varaibles
-Output = "08_Fst_perm/permuted_" + ".".join(Vcf.split(".")[:-2]).split("/")[-1]
+Output = "08_Fst_perm/permuted_Fst_win"
 
 
 #Functions:
