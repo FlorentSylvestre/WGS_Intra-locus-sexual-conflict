@@ -5,8 +5,8 @@ Global_vcf=$1
 
 #Fixed variable
 List_win="11_Res_permuts/windows_balancing_selection"
-LD_path="15_ld"
-Output_vcf="03_datasets/High_Tajima"
+LD_path="14_ld"
+Output_vcf="04_datasets/High_Tajima"
 
 
 while read line
