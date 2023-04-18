@@ -96,13 +96,13 @@ for(j in 1:N){
 ####Outputing files
 ##Global file of Fst/Pval calculation:
 print("Outputing global results")
-write.table(file,file = paste0(output,prefix,"_fst_res_per_snps.txt", sep =""),quote = F,sep = "\t",na = "NA", row.names = F,col.names = T)
+write.table(file,file = paste0(output,"_fst_res_per_snps.txt", sep =""),quote = F,sep = "\t",na = "NA", row.names = F,col.names = T)
 
 ##Global file count:
 Global_res = cbind("Obs" = global_perc_quantile, do.call(cbind,res_matrix_global))
 
 colnames(Global_res)[-1] = paste0("R",1:N)
-write.table(Global_res,file = paste0(output,p refix, "_global_count_percentile.txt", sep =""),quote = F,sep = "\t",na = "NA", row.names = F,col.names = T)
+write.table(Global_res,file = paste0(output, "_global_count_percentile.txt", sep =""),quote = F,sep = "\t",na = "NA", row.names = F,col.names = T)
 
 ##per chr count:
 print("Outputing per chr result")
@@ -116,6 +116,6 @@ for(i in 1:N){
 
 }
 
-write.table(res_per_chr,file = paste0(output, prefix, "_per_chr_count_percentile.txt", sep =""),quote = F,sep = "\t",na = "NA", row.names = F, col.names = T)
+write.table(res_per_chr,file = paste0(output, "_per_chr_count_percentile.txt", sep =""),quote = F,sep = "\t",na = "NA", row.names = F, col.names = T)
 
 
